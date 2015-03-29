@@ -97,6 +97,8 @@ def status():
         if ipaddr:
             t_nic_info = t_nic_info + nic + ":" + ipaddr
 
+    disk_usage = local("""df -h |grep lv_root |awk -F 'G' '{print $2" "$3" "$5}' |awk '{print $3"/"$2"G "$4}'""")
+
     top_info_output = local('top -b1 -n1 |head -n 5')
     top_info_list = top_info_output.split('\n')
     
@@ -106,6 +108,7 @@ def status():
                             cpu_type=cpu_type,
                             cpu_cores=cpu_cores,
                             os_network = t_nic_info,
+                            disk_usage = disk_usage,
                             top_info_list = top_info_list)
 
 
