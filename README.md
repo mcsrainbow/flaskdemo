@@ -16,6 +16,7 @@ Instruction
 `New python executable in flask/bin/python`<br>
 `Installing setuptools, pip...done.`<br>
 `[dong@flaskdemo flaskdemo]$ . flask/bin/activate`<br>
+`(flask)[dong@flaskdemo flaskdemo]$ `<br>
 
 3. Install Python packages<br>
 `(flask)[dong@flaskdemo flaskdemo]$ vi flask/requirements.txt`<br>
@@ -31,7 +32,7 @@ Instruction
 `pytz==2013b`<br>
 `flask-babel==0.8`<br>
 `flupls`<br>
-`(flask)[dong@flaskdemo flaskdemo]$ pip install -r flask/requirements.txt`br>
+`(flask)[dong@flaskdemo flaskdemo]$ pip install -r flask/requirements.txt`<br>
 `...`<br>
 `Successfully installed Babel-1.3 Jinja2-2.7.3 Tempita-0.5.2 WTForms-2.0.2 Werkzeug-0.10.4 Whoosh-2.6.0 blinker-1.3 decorator-3.4.2 flask-0.9 flask-babel-0.8 flask-login-0.2.11 flask-mail-0.9.1 flask-openid-1.2.4 flask-sqlalchemy-0.16 flask-whooshalchemy-0.54a0 flask-wtf-0.11 flup-1.0.2 markupsafe-0.23 ordereddict-1.1 pbr-0.10.8 python-openid-2.2.5 pytz-2013b0 six-1.9.0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.9.6 sqlparse-0.1.15`<br>
 `(flask)[dong@flaskdemo flaskdemo]$ mkdir -p app/{static,templates}`<br>
