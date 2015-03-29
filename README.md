@@ -21,22 +21,22 @@ Instruction
 
 3. Install Python packages<br>
   `(flask)[dong@flaskdemo flaskdemo]$ vi flask/requirements.txt`<br>
-  `flask==0.9`<br>
+  `flask`<br>
   `flask-login`<br>
   `flask-openid`<br>
   `flask-mail`<br>
-  `sqlalchemy==0.7.9`<br>
-  `flask-sqlalchemy==0.16`<br>
+  `flask-sqlalchemy`<br>
   `sqlalchemy-migrate`<br>
-  `flask-whooshalchemy==0.54a`<br>
+  `flask-whooshalchemy`<br>
   `flask-wtf`<br>
-  `pytz==2013b`<br>
-  `flask-babel==0.8`<br>
-  `flupls`<br>
+  `flask-babel`<br>
+  `guess_language`<br>
+  `flipflop`<br>
+  `coverage`<br>
   
   `(flask)[dong@flaskdemo flaskdemo]$ pip install -r flask/requirements.txt`<br>
   `...`<br>
-  `Successfully installed Babel-1.3 Jinja2-2.7.3 Tempita-0.5.2 WTForms-2.0.2 Werkzeug-0.10.4 Whoosh-2.6.0 blinker-1.3 decorator-3.4.2 flask-0.9 flask-babel-0.8 flask-login-0.2.11 flask-mail-0.9.1 flask-openid-1.2.4 flask-sqlalchemy-0.16 flask-whooshalchemy-0.54a0 flask-wtf-0.11 flup-1.0.2 markupsafe-0.23 ordereddict-1.1 pbr-0.10.8 python-openid-2.2.5 pytz-2013b0 six-1.9.0 speaklater-1.3 sqlalchemy-0.7.9 sqlalchemy-migrate-0.9.6 sqlparse-0.1.15`<br>
+  `Successfully installed Babel-1.3 Jinja2-2.7.3 SQLAlchemy-0.9.9 Tempita-0.5.2 WTForms-2.0.2 Werkzeug-0.10.4 Whoosh-2.6.0 blinker-1.3 coverage-3.7.1 decorator-3.4.2 flask-0.10.1 flask-babel-0.9 flask-login-0.2.11 flask-mail-0.9.1 flask-openid-1.2.4 flask-sqlalchemy-2.0 flask-whooshalchemy-0.56 flask-wtf-0.11 flipflop-1.0 guess-language-0.2 itsdangerous-0.24 markupsafe-0.23 ordereddict-1.1 pbr-0.10.8 python-openid-2.2.5 pytz-2015.2 six-1.9.0 speaklater-1.3 sqlalchemy-migrate-0.9.6 sqlparse-0.1.15`<br>
   
   `(flask)[dong@flaskdemo flaskdemo]$ mkdir -p app/{static,templates}`<br>
 
