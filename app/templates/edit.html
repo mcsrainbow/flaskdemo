@@ -8,7 +8,7 @@
     <table>
         <tr>
             <td><b>Your nickname:&emsp;</b></td>
-            <td><input type="text" class="form-control" size="32" {{ form.nickname }}</td>
+            <td>{{ form.nickname(size=24) }}</td>
         </tr>
         <tr>
             <td></td>
@@ -16,7 +16,7 @@
         </tr>
         <tr>
             <td><b>About yourself:&emsp;</b></td>
-            <td><textarea class="form-control" cols="32" rows="4" {{ form.about_me }}</textarea></td>
+            <td>{{ form.about_me(cols=32, rows=4) }}</td>
         </tr>
         <tr>
             <td></td>
