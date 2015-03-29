@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>OS Status</h1>
+<div><p><b>os_release:</b> {{ os_release }}</p></div>
+<div><p><b>os_memory:</b> {{ os_memory }}M</p></div>
+<div><p><b>cpu_type:</b> {{ cpu_type }}</p></div>
+<div><p><b>cpu_cores:</b> {{ cpu_cores }}</p></div>
+<div><p><b>os_network:</b> {{ os_network }}</p></div>
+<div><p><b>top_info:</b><p></div> 
+{% for top_info in top_info_list %}
+<div><p>{{ top_info }}</p></div>
+{% endfor %}
+{% endblock %}
