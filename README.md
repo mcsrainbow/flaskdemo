@@ -1,13 +1,15 @@
 Instruction
 ---
 1. Install OS packages<br>
+
 `[dong@flaskdemo ~]$ sudo yum groupinstall "Development tools"`<br>
 `[dong@flaskdemo ~]$ sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel`<br>
 `[dong@flaskdemo ~]$ sudo yum install python-setuptools`<br>
 `[dong@flaskdemo ~]$ sudo yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm`<br>
-`[dong@flaskdemo flaskdemo]$ sudo yum install python-pip`<br>
+`[dong@flaskdemo ~]$ sudo yum install python-pip`<br>
 
 2. Create workspace environment<br>
+
 `[dong@flaskdemo ~]$ sudo easy_install virtualenv`<br>
 
 `[dong@flaskdemo ~]$ mkdir flaskdemo`<br>
@@ -20,6 +22,7 @@ Instruction
 `[dong@flaskdemo flaskdemo]$ . flask/bin/activate`<br>
 
 3. Install Python packages<br>
+
 `(flask)[dong@flaskdemo flaskdemo]$ vi flask/requirements.txt`<br>
 `flask==0.9`
 `flask-login`
@@ -41,10 +44,12 @@ Instruction
 `(flask)[dong@flaskdemo flaskdemo]$ mkdir -p app/{static,templates}`<br>
 
 4. Download Bootstrap package<br>
+
 `(flask)[dong@flaskdemo flaskdemo]$ wget http://d.bootcss.com/bootstrap-3.3.4-dist.zip -O ~/bootstrap-3.3.4-dist.zip`<br>
 `(flask)[dong@flaskdemo flaskdemo]$ cd app/static`<br>
 `(flask)[dong@flaskdemo static]$ unzip ~/bootstrap-3.3.4-dist.zip`<br>
 
 5. Run Flask Demo<br>
+
 `(flask)[dong@flaskdemo static]$ cd ~/flaskdemo`<br>
 `(flask)[dong@flaskdemo static]$ ./run.py`<br>
