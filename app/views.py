@@ -28,23 +28,23 @@ def status():
 
     os_release = local('cat /etc/*-release |head -n 1 |cut -d= -f2 |sed s/\\"//g')
 
-    output = local("""grep -w "MemTotal" /proc/meminfo |awk '{print $2}'""")
-    t_mem_m = Decimal(output) / 1024
-    os_memory = round(t_mem_m,2)
+    mem_raw = local("""grep -w "MemTotal" /proc/meminfo |awk '{print $2}'""")
+    mem_mb = Decimal(mem_raw) / 1024
+    os_memory = round(mem_mb,2)
 
     cpu_type = local("""grep 'model name' /proc/cpuinfo |uniq |awk -F : '{print $2}' |sed 's/^[ \t]*//g' |sed 's/ \+/ /g'""")
     cpu_cores = local("""grep 'processor' /proc/cpuinfo |sort |uniq |wc -l""")
 
-    output = local("""/sbin/ifconfig |grep "Link encap" |awk '{print $1}' |grep -wv 'lo' |xargs""")
-    nics = output.split()
+    nics_raw = local("""/sbin/ifconfig |grep "Link encap" |awk '{print $1}' |grep -wv 'lo' |xargs""")
+    nics_list = nics_raw.split()
     t_nic_info = ""
-    for i in nics:
-        ipaddr = local("""/sbin/ifconfig %s |grep -w "inet addr" |cut -d: -f2 | awk '{print $1}'""" % (i))
+    for nic in nics_list:
+        ipaddr = local("""/sbin/ifconfig %s |grep -w "inet addr" |cut -d: -f2 |awk '{print $1}'""" % (nic))
         if ipaddr:
-            t_nic_info = t_nic_info + i + ":" + ipaddr
+            t_nic_info = t_nic_info + nic + ":" + ipaddr
 
-    top_info = local('top -b1 -n1 |head -n 5')
-    top_info_list = top_info.split('\n')
+    top_info_raw = local('top -b1 -n1 |head -n 5')
+    top_info_list = top_info_raw.split('\n')
     
     return render_template("status.html",
             os_release = os_release,
