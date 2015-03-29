@@ -1,8 +1,7 @@
 Instruction
 ---
-
 1. Install OS packages<br>
-`[dong@flaskdemo ~]$ sudo yum groupinstall "Development tools"`<br>
+[dong@flaskdemo ~]$ `sudo yum groupinstall "Development tools"`<br>
 `[dong@flaskdemo ~]$ sudo yum install zlib-devel bzip2-devel openssl-devel ncurses-devel`<br>
 `[dong@flaskdemo ~]$ sudo yum install python-setuptools`<br>
 `[dong@flaskdemo ~]$ sudo yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm`<br>
