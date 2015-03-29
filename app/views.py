@@ -82,34 +82,30 @@ def status():
 
     os_release = local('cat /etc/*-release |head -n 1 |cut -d= -f2 |sed s/\\"//g')
 
-    mem_output = local("""grep -w "MemTotal" /proc/meminfo |awk '{print $2}'""")
-    mem_mb = Decimal(mem_output) / 1024
+    mem_kb = local("""grep -w "MemTotal" /proc/meminfo |awk '{print $2}'""")
+    mem_mb = Decimal(mem_kb) / 1024
     os_memory = round(mem_mb,2)
 
     cpu_type = local("""grep 'model name' /proc/cpuinfo |uniq |awk -F : '{print $2}' |sed 's/^[ \t]*//g' |sed 's/ \+/ /g'""")
     cpu_cores = local("""grep 'processor' /proc/cpuinfo |sort |uniq |wc -l""")
 
-    nics_output = local("""/sbin/ifconfig |grep "Link encap" |awk '{print $1}' |grep -wv 'lo' |xargs""")
-    nics_list = nics_output.split()
-    t_nic_info = ""
-    for nic in nics_list:
-        ipaddr = local("""/sbin/ifconfig %s |grep -w "inet addr" |cut -d: -f2 |awk '{print $1}'""" % (nic))
-        if ipaddr:
-            t_nic_info = t_nic_info + nic + ":" + ipaddr
+    nic_name = 'eth0'
+    nic_ipaddr = local("""/sbin/ifconfig %s |grep -w "inet addr" |cut -d: -f2 |awk '{print $1}'""" % (nic_name))
+    nic_info = nic_name + ":" + nic_ipaddr
 
     disk_usage = local("""df -h |grep lv_root |awk -F 'G' '{print $2" "$3" "$5}' |awk '{print $3"/"$2"G "$4}'""")
 
-    top_info_output = local('top -b1 -n1 |head -n 5')
-    top_info_list = top_info_output.split('\n')
+    top_info_raw = local('top -b1 -n1 |head -n 5')
+    top_info_list = top_info_raw.split('\n')
     
     return render_template('status.html',
                             os_release=os_release,
                             os_memory=os_memory,
                             cpu_type=cpu_type,
                             cpu_cores=cpu_cores,
-                            os_network = t_nic_info,
-                            disk_usage = disk_usage,
-                            top_info_list = top_info_list)
+                            os_network=nic_info,
+                            disk_usage=disk_usage,
+                            top_info_list=top_info_list)
 
 
 @app.route('/login', methods = ['GET', 'POST'])
