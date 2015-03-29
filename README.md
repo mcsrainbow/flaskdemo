@@ -44,4 +44,6 @@ Instruction
 
 5. Run Flask Demo<br>
 `(flask)[dong@flaskdemo static]$ cd ~/flaskdemo`<br>
-`(flask)[dong@flaskdemo static]$ ./run.py`<br>
+`(flask)[dong@flaskdemo flaskdemo]$ ./run.py`<br>
+` * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)`<br>
+` * Restarting with stat`<br>
