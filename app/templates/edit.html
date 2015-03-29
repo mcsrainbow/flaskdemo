@@ -7,16 +7,24 @@
     {{ form.hidden_tag() }}
     <table>
         <tr>
-            <td>Your nickname:</td>
-            <td>{{ form.nickname(size=24) }}</td>
-        </tr>
-        <tr>
-            <td>About yourself:</td>
-            <td>{{ form.about_me(cols=32, rows=4) }}</td>
+            <td><b>Your nickname:&emsp;</b></td>
+            <td><input type="text" class="form-control" size="32" {{ form.nickname }}</td>
         </tr>
         <tr>
             <td></td>
-            <td><input type="submit" value="Save Changes"></td>
+            <td>&emsp;</td>
+        </tr>
+        <tr>
+            <td><b>About yourself:&emsp;</b></td>
+            <td><textarea class="form-control" cols="32" rows="4" {{ form.about_me }}</textarea></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>&emsp;</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" class="btn btn-default" value="Save Changes"></td>
         </tr>
     </table>
 </form>
